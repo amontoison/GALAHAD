@@ -116,6 +116,7 @@ libgalahad_link_with += [libgalahad_hsl]
 # libgalahad
 
 libgalahad_c_src = []
+libgalahad_ampl_src = []
 
 ## 1. the following modules have no dependencies inside libgalahad; they appear in alphabetical order
 subdir('src/clock')
@@ -182,6 +183,9 @@ subdir('src/sils')
 # TODO: ssids
 # sls => needs HSL
 
+## 3. AMPL interfaces
+subdir('src/ampl')
+
 libgalahad = library('galahad',
                      sources : libgalahad_src,
                      link_with : libgalahad_link_with,
@@ -194,6 +198,14 @@ if build_ciface
                          sources : libgalahad_c_src,
                          link_with : libgalahad,
                          install : true)
+endif
+
+build_ampliface = get_option('ampliface')
+if build_ampliface
+  libgalahad_ampl = library('galahad_ampl',
+                            sources : libgalahad_ampl_src,
+                            link_with : libgalahad,
+                            install : true)
 endif
 
 # Executables

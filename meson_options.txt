@@ -3,6 +3,11 @@ option('ciface',
        value : false,
        description : 'whether to build the C interfaces')
 
+option('ampliface',
+       type : 'boolean',
+       value : false,
+       description : 'whether to build the AMPL interfaces')
+
 option('hslarchive-galahad',
        type : 'string',
        value : '',
@@ -12,6 +17,7 @@ option('libblas',
        type : 'array',
        value : [],
        description : 'array [path, libname] with a path to search for BLAS library named libname')
+
 option('liblapack',
        type : 'array',
        value : [],
