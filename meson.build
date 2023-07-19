@@ -472,7 +472,7 @@ if build_tests and build_pythoniface and build_ciface and build_double
          py,
          args : file,
          suite : [package, 'Python'],
-         env : ['PYTHONPATH=' + get_option('prefix')],
+         env : ['PYTHONPATH=' + get_option('prefix') + '/lib'],
          is_parallel : false)
   endforeach
 endif
