@@ -478,8 +478,6 @@ endif
 # Python tests
 if build_tests and build_pythoniface and build_ciface and build_double
 
-  pypathdir = meson.current_build_dir()
-
   foreach test: galahad_python_tests
     package = test[0]
     name = test[1]
@@ -488,7 +486,7 @@ if build_tests and build_pythoniface and build_ciface and build_double
          py,
          args : file,
          suite : [package, 'Python'],
-         env : ['PYTHONPATH=' + pypathdir],
+         env : ['PYTHONPATH=' + get_option('prefix')],
          is_parallel : false)
   endforeach
 endif
