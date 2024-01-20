@@ -8,7 +8,7 @@ version = VersionNumber(ENV["GALAHAD_RELEASE"])
 
 # Collection of sources required to complete build
 sources = [
-    GitSource("https://github.com/ralna/GALAHAD.git", ENV["GALAHAD_COMMIT"])
+    GitSource("https://github.com/amontoison/GALAHAD.git", ENV["GALAHAD_COMMIT"])
 ]
 
 # Bash recipe for building across all platforms
