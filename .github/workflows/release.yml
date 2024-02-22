@@ -25,13 +25,21 @@ jobs:
           echo "GALAHAD_RELEASE=${{ github.ref_name }}" >> $GITHUB_ENV
           echo "GALAHAD_COMMIT=${{ github.sha }}" >> $GITHUB_ENV
       - name: Cross-compilation of GALAHAD -- x86_64-linux-gnu-libgfortran5
-        run: julia --color=yes .github/julia/build_tarballs.jl x86_64-linux-gnu-libgfortran5 --verbose
+        run: |
+          julia --color=yes .github/julia/build_tarballs.jl x86_64-linux-gnu-libgfortran5 --verbose
+          rm -r ~/.julia
       - name: Cross-compilation of GALAHAD -- x86_64-w64-mingw32-libgfortran5
-        run: julia --color=yes .github/julia/build_tarballs.jl x86_64-w64-mingw32-libgfortran5 --verbose
+        run: |
+          julia --color=yes .github/julia/build_tarballs.jl x86_64-w64-mingw32-libgfortran5 --verbose
+          rm -r ~/.julia
       - name: Cross-compilation of GALAHAD -- x86_64-apple-darwin-libgfortran5
-        run: julia --color=yes .github/julia/build_tarballs.jl x86_64-apple-darwin-libgfortran5 --verbose
+        run: |
+          julia --color=yes .github/julia/build_tarballs.jl x86_64-apple-darwin-libgfortran5 --verbose
+          rm -r ~/.julia
       - name: Cross-compilation of GALAHAD -- aarch64-apple-darwin-libgfortran5
-        run: julia --color=yes .github/julia/build_tarballs.jl aarch64-apple-darwin-libgfortran5 --verbose
+        run: |
+          julia --color=yes .github/julia/build_tarballs.jl aarch64-apple-darwin-libgfortran5 --verbose
+          rm -r ~/.julia
       - name: Generate the binaries
         run: julia --color=yes .github/julia/generate_binaries.jl
       - name: Create a new release
