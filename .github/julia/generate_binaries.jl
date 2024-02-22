@@ -69,7 +69,7 @@ for (platform, libdir, ext) in platforms
 
       # Create a folder with the version number of the package
       mkdir("$(package)_binaries.$version2")
-      for folder in ("include", "share", "modules", "lib", "bin", "examples", "tests")
+      for folder in ("include", "share", "modules", "lib", "bin")
         cp(folder, "$(package)_binaries.$version2/$folder")
       end
 
